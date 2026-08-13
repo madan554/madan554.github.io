@@ -1,7 +1,7 @@
 const projects = [
   {
     name: 'CeroHero AI',
-    live: 'https://cerohero.ai',
+    live: 'https://ai.cerohero.com',
     blurb:
       'Live LLM microservice for sustainability recommendations. LangGraph pipeline, pgvector RAG, FastAPI, and a React dashboard with streaming chat. Keys stay on the server.',
     tags: ['FastAPI', 'LangGraph', 'pgvector', 'React'],
@@ -61,16 +61,37 @@ export default function App() {
         </h1>
         <p className="lede">
           I ship FastAPI services, React UIs, and production LLM features — not
-          demos. Currently building crop-intelligence systems at PRSTI. Side
-          products: CeroHero AI and Basera.
+          demos. Try CeroHero at ai.cerohero.com. Basera is my multi-tenant
+          PG-management SaaS (web + mobile).
         </p>
         <div className="cta">
-          <a className="btn primary" href="https://cerohero.ai" target="_blank" rel="noreferrer">
-            See CeroHero live
+          <a className="btn primary" href="https://ai.cerohero.com" target="_blank" rel="noreferrer">
+            Open CeroHero
           </a>
-          <a className="btn ghost" href="mailto:Madanmohan46660@gmail.com">
-            Email me
+          <a className="btn ghost" href="#work">
+            See Basera &amp; more
           </a>
+        </div>
+      </section>
+
+      <section className="live" aria-label="Live products">
+        <div className="live-head">
+          <h2>Live product</h2>
+          <a href="https://ai.cerohero.com" target="_blank" rel="noreferrer">
+            ai.cerohero.com ↗
+          </a>
+        </div>
+        <p className="live-note">
+          CeroHero AI — production RAG + FastAPI app. Open it in a new tab if the
+          preview below is blocked.
+        </p>
+        <div className="frame-wrap">
+          <iframe
+            title="CeroHero AI"
+            src="https://ai.cerohero.com"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </section>
 

@@ -101,7 +101,39 @@ nav a:hover { color: var(--ink); }
   color: var(--ink);
 }
 
-.work, .about, .contact { margin-top: 4rem; }
+.work, .about, .contact, .live { margin-top: 4rem; }
+
+.live-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.live-head h2 { margin: 0; }
+
+.live-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0.6rem 0 1rem;
+}
+
+.frame-wrap {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  min-height: 420px;
+  box-shadow: 0 18px 50px rgba(26, 36, 33, 0.08);
+}
+
+.frame-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 520px;
+  border: 0;
+}
 
 h2 {
   font-family: var(--font-display);
