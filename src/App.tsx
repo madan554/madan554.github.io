@@ -65,7 +65,7 @@ export default function App() {
       <section className="hero">
         <img
           className="avatar"
-          src="/profile-avatar.png"
+          src="/profilepicture.jpeg"
           alt="Madan Mohan Reddy"
           width={96}
           height={96}
