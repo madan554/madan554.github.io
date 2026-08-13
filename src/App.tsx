@@ -1,22 +1,38 @@
+const liveProducts = [
+  {
+    name: 'CeroHero AI',
+    url: 'https://ai.cerohero.com',
+    host: 'ai.cerohero.com',
+    note: 'Independent production RAG + FastAPI app. Open in a new tab if the preview below is blocked. Demo sign-in is on the live page.',
+  },
+  {
+    name: 'SeedLens · PRSTI',
+    url: 'https://seedlens-dev.prstiaimind.space',
+    host: 'seedlens-dev.prstiaimind.space',
+    note: 'Employer product: Precision Crop Intelligence field dashboard (vanilla HTML/JS). Company site: prsti.ai.',
+  },
+]
+
 const projects = [
   {
     name: 'CeroHero AI',
     live: 'https://ai.cerohero.com',
     blurb:
-      'Live LLM microservice for sustainability recommendations. LangGraph pipeline, pgvector RAG, FastAPI, and a React dashboard with streaming chat. Keys stay on the server.',
+      'Live LLM microservice I built and operate independently. LangGraph pipeline, pgvector RAG, FastAPI, React/TS dashboard with streaming chat. Keys stay on the server; embeddings run locally.',
     tags: ['FastAPI', 'LangGraph', 'pgvector', 'React'],
+  },
+  {
+    name: 'SeedLens · PRSTI',
+    live: 'https://seedlens-dev.prstiaimind.space',
+    blurb:
+      'Precision Crop Intelligence field dashboard at PRSTI. I personally built FastAPI APIs, scoring/pipeline pieces, the vanilla HTML/JS UI (not React), Ask PRSTI LLM analytics, and phased Cognito/tenancy. Team product — company site at prsti.ai.',
+    tags: ['FastAPI', 'PostgreSQL', 'Vanilla JS', 'LLMs'],
   },
   {
     name: 'Basera',
     blurb:
       'Multi-tenant PG / property SaaS: residents, occupancy, rent, expenses, and owner ops on web and mobile. Razorpay with webhook checks, WhatsApp Cloud API, Celery/Redis, 260+ backend tests.',
     tags: ['FastAPI', 'PostgreSQL', 'React Native', 'Razorpay'],
-  },
-  {
-    name: 'Precision Crop Intelligence',
-    blurb:
-      'At PRSTI: FastAPI + Postgres product that turns satellite indices into field scores, advisories, and NL analytics for seed and rice teams. Dashboard APIs, Cognito auth (phased).',
-    tags: ['FastAPI', 'PostgreSQL', 'Analytics', 'LLMs'],
   },
   {
     name: 'Document automation',
@@ -28,7 +44,7 @@ const projects = [
 
 const skills = [
   ['Backend', 'Python · FastAPI · Django · Flask · REST · JWT · Celery · Redis'],
-  ['Frontend', 'React · TypeScript · React Native · Angular'],
+  ['Frontend', 'React · TypeScript · React Native · Angular · Vanilla JS'],
   ['Data & AI', 'PostgreSQL · Pandas · NumPy · LangGraph · RAG · OpenAI APIs'],
   ['Cloud', 'AWS EC2 / ECS / S3 · Docker · Nginx · CI/CD'],
 ]
@@ -39,6 +55,7 @@ export default function App() {
       <header className="nav">
         <span className="mark">MMR</span>
         <nav>
+          <a href="#live">Live</a>
           <a href="#work">Work</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
@@ -60,38 +77,47 @@ export default function App() {
           <span>Python full-stack &amp; AI engineer.</span>
         </h1>
         <p className="lede">
-          I ship FastAPI services, React UIs, and production LLM features — not
-          demos. Try CeroHero at ai.cerohero.com. Basera is my multi-tenant
-          PG-management SaaS (web + mobile).
+          I ship FastAPI services, production LLM features, and the UI the
+          product needs — React when I own it, vanilla JS when that is the
+          stack. Two live systems: CeroHero AI and PRSTI SeedLens.
         </p>
         <div className="cta">
           <a className="btn primary" href="https://ai.cerohero.com" target="_blank" rel="noreferrer">
             Open CeroHero
           </a>
-          <a className="btn ghost" href="#work">
-            See Basera &amp; more
+          <a
+            className="btn ghost"
+            href="https://seedlens-dev.prstiaimind.space"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open SeedLens
           </a>
         </div>
       </section>
 
-      <section className="live" aria-label="Live products">
-        <div className="live-head">
-          <h2>Live product</h2>
-          <a href="https://ai.cerohero.com" target="_blank" rel="noreferrer">
-            ai.cerohero.com ↗
-          </a>
-        </div>
-        <p className="live-note">
-          CeroHero AI — production RAG + FastAPI app. Open it in a new tab if the
-          preview below is blocked.
-        </p>
-        <div className="frame-wrap">
-          <iframe
-            title="CeroHero AI"
-            src="https://ai.cerohero.com"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+      <section id="live" className="live" aria-label="Live products">
+        <h2>Live products</h2>
+        <div className="live-grid">
+          {liveProducts.map((p) => (
+            <article key={p.url} className="live-card">
+              <div className="live-head">
+                <h3>{p.name}</h3>
+                <a href={p.url} target="_blank" rel="noreferrer">
+                  {p.host} ↗
+                </a>
+              </div>
+              <p className="live-note">{p.note}</p>
+              <div className="frame-wrap">
+                <iframe
+                  title={p.name}
+                  src={p.url}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -125,7 +151,8 @@ export default function App() {
         <p>
           Backend-first, UI when the product needs it. I care about API
           contracts, auth, and not putting secrets in the browser. Independent
-          work is how I prove I can own a system end to end.
+          work is how I prove I can own a system end to end; employer products
+          are where I own specific layers on a team.
         </p>
         <dl className="skills">
           {skills.map(([k, v]) => (

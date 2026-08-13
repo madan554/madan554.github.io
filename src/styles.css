@@ -103,6 +103,16 @@ nav a:hover { color: var(--ink); }
 
 .work, .about, .contact, .live { margin-top: 4rem; }
 
+.live-grid {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.live-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
 .live-head {
   display: flex;
   flex-wrap: wrap;
@@ -111,7 +121,8 @@ nav a:hover { color: var(--ink); }
   gap: 0.5rem;
 }
 
-.live-head h2 { margin: 0; }
+.live-head h2,
+.live-head h3 { margin: 0; }
 
 .live-note {
   color: var(--muted);
